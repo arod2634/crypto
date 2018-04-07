@@ -1326,12 +1326,12 @@ caniuse-api@^1.5.2:
     lodash.uniq "^4.5.0"
 
 caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
-  version "1.0.30000823"
-  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000823.tgz#e68e5f8c70783ef4059d2ea0de81f551651da6fc"
+  version "1.0.30000824"
+  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000824.tgz#bba3ff425296e04caa37fe426259206a7056551b"
 
 caniuse-lite@^1.0.30000748, caniuse-lite@^1.0.30000792:
-  version "1.0.30000823"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000823.tgz#b79842a5b5a48eaa416b73f5a5d7a23f52d26014"
+  version "1.0.30000824"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000824.tgz#de3bc1ba0bff4937302f8cb2a8632a8cc1c07f9a"
 
 capture-stack-trace@^1.0.0:
   version "1.0.0"
@@ -3322,9 +3322,15 @@ https-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
 
-iconv-lite@0.4.19, iconv-lite@^0.4.17, iconv-lite@~0.4.13:
+iconv-lite@0.4.19:
   version "0.4.19"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.19.tgz#f7468f60135f5e5dad3399c0a81be9a1603a082b"
+
+iconv-lite@^0.4.17, iconv-lite@~0.4.13:
+  version "0.4.21"
+  resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.21.tgz#c47f8733d02171189ebc4a400f3218d348094798"
+  dependencies:
+    safer-buffer "^2.1.0"
 
 icss-replace-symbols@^1.1.0:
   version "1.1.0"
@@ -5569,7 +5575,7 @@ react-dev-utils@^5.0.1:
     strip-ansi "3.0.1"
     text-table "0.2.0"
 
-react-dom@16.3.1:
+react-dom@^16.3.1:
   version "16.3.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.3.1.tgz#6a3c90a4fb62f915bdbcf6204422d93a7d4ca573"
   dependencies:
@@ -5627,7 +5633,11 @@ react-scripts@1.1.4:
   optionalDependencies:
     fsevents "^1.1.3"
 
-react@16.3.1:
+react-tradingview-widget@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/react-tradingview-widget/-/react-tradingview-widget-1.2.3.tgz#1d30d93093bd70035e0677bf8ba92c8a135df94c"
+
+react@^16.3.1:
   version "16.3.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.3.1.tgz#4a2da433d471251c69b6033ada30e2ed1202cfd8"
   dependencies:
@@ -5990,6 +6000,10 @@ safe-regex@^1.1.0:
   resolved "https://registry.yarnpkg.com/safe-regex/-/safe-regex-1.1.0.tgz#40a3669f3b077d1e943d44629e157dd48023bf2e"
   dependencies:
     ret "~0.1.10"
+
+safer-buffer@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.0.tgz#d9f653a55538c8d7829cb1a92e90bbcbc5ff5d3b"
 
 sane@~1.6.0:
   version "1.6.0"
