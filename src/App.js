@@ -27,7 +27,7 @@ export default class App extends Component {
             allow_symbol_change={false}
             autosize />
         </div>))
-    return (<div key={666} className="item"><strong>ERROR</strong></div>)
+    return (<div key={666} className="item"><h1>ERROR</h1></div>)
   }
 
   displayMenu = () => {

@@ -8,6 +8,7 @@
 :root {
   --yellow: #ffc600;
   --black: #272727;
+  --white: #FFFFFF;
 }
 
 html {
@@ -49,5 +50,6 @@ h3,
 h4,
 h5,
 h6 {
+  color: var(--white);
   margin: 0 0 5px 0;
 }
