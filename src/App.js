@@ -26,6 +26,7 @@ export default class App extends Component {
             save_image={false}
             allow_symbol_change={false}
             autosize />
+            <button className="view-chart-button">View Full Chart</button>
         </div>))
     return (<div key={666} className="item"><h1>ERROR</h1></div>)
   }

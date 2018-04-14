@@ -43,14 +43,14 @@
 
 /* General sidebar styles */
 .bm-menu {
-  background: #363c4e;
+  background: var(--gray);
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }
 
 /* Morph shape necessary with bubble or elastic */
 .bm-morph-shape {
-  fill: #363c4e;
+  fill: var(--gray);
 }
 
 /* Wrapper for item list */
@@ -101,6 +101,38 @@ select {
     min-height: 28px;
     min-width: 50%;
     padding-left: 10px;
+}
+
+
+.view-chart-button {
+  border-style: solid;
+  background-color: #C6CCD2;
+  border-color: #AAB3BB;
+    border-width: 0px 0px 3px;
+    -webkit-box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    color: #FFFFFF;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-block;
+    font-style: normal;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    -webkit-transition: all 200ms ease-in-out 0s;
+    -o-transition: all 200ms ease-in-out 0s;
+    transition: all 200ms ease-in-out 0s;
+    white-space: nowrap;
+    font-weight: 400;
+    padding: 12px 39px;
+    font-size: 12px;
+}
+
+.view-chart-button:hover, .view-chart-button:focus, .view-chart-button:active {
+  background-color: #B8BFC7;
+  border-color: #AAB3BB;
 }
 
 @media only screen and (max-width: 500px) {
