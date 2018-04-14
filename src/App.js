@@ -10,7 +10,7 @@ export default class App extends Component {
     this.state = {
       isOpen: false,
       timeInterval: 60,
-      tickers: ['COINBASE:BTCUSD','COINBASE:ETCUSD','COINBASE:LTCUSD', 'BINANCE:EOSBTC'],
+      tickers: ['COINBASE:BTCUSD','COINBASE:ETHUSD','COINBASE:LTCUSD', 'BINANCE:EOSBTC'],
     }
   }
 
