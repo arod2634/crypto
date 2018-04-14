@@ -8,104 +8,66 @@ export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      isOpen: true,
-      coinData: []
+      isOpen: false,
+      timeInterval: 60,
+      tickers: ['COINBASE:BTCUSD','COINBASE:ETCUSD','COINBASE:LTCUSD', 'BINANCE:EOSBTC'],
     }
   }
 
-  componentDidMount() {
-    fetch('https://api.coinmarketcap.com/v1/ticker/bitcoin/')
-      .then(response => response.json())
-      .then(data => this.setState({ coinData: data }));
+  displayWidgets = () => {
+    if (Object.keys(this.state.tickers))
+      return (this.state.tickers.map((ticker, index) =>
+        <div key={ticker} className="item">
+          <TradingViewWidget
+            theme={Themes.DARK}
+            symbol={ticker}
+            timezone="America/Chicago"
+            interval={this.state.timeInterval}
+            save_image={false}
+            allow_symbol_change={false}
+            autosize />
+        </div>))
+    return (<div key={666} className="item"><strong>ERROR</strong></div>)
+  }
+
+  displayMenu = () => {
+    return(
+      <Menu isOpen={this.state.isOpen}>
+        <h2>Settings</h2>
+        <hr/>
+        <br/>
+        <h3>Time Interval</h3>
+        <select id="time-interval-dropdown" value={this.state.timeInterval} onChange={this.updateTimeInterval} >
+          <option value={IntervalTypes.M}>Monthly</option>
+          <option value={IntervalTypes.W}>Weekly</option>
+          <option value={IntervalTypes.D}>Daily</option>
+          <option value="240">4 Hour</option>
+          <option value="180">3 Hour</option>
+          <option value="120">2 Hour</option>
+          <option value="60">1 Hour</option>
+          <option value="30">30 Minute</option>
+          <option value="15">15 Minute</option>
+          <option value="5">5 Minute</option>
+          <option value="3">3 Minute</option>
+          <option value="1">1 Minute</option>
+        </select>
+      </Menu>
+    )
+  }
+
+  updateTimeInterval = (e) => {
+    this.setState({
+      timeInterval: e.target.value,
+      isOpen: false
+    });
   }
 
   render() {
-
-    let isMenuOpen = function(state) {
-      console.log("Menu is open");
-      return state.isOpen;
-    };
-
-    let styles = {
-      bmBurgerButton: {
-        position: 'fixed',
-        width: '20px',
-        height: '16px',
-        left: '16px',
-        top: '26px'
-      },
-      bmBurgerBars: {
-        background: '#FFFFFF'
-      },
-      bmCrossButton: {
-        height: '24px',
-        width: '24px'
-      },
-      bmCross: {
-        background: '#FFFFFF'
-      },
-      bmMenu: {
-        background: '#363c4e',
-        padding: '2.5em 1.5em 0',
-        fontSize: '1.15em'
-      },
-      bmMorphShape: {
-        fill: '#363c4e'
-      },
-      bmItemList: {
-        color: '#b8b7ad',
-        padding: '0.8em'
-      },
-      bmOverlay: {
-        background: 'rgba(0, 0, 0, 0.3)'
-      },
-      bmMenuWrap: {
-        marginTop: '-20px',
-        marginLeft: '-8px'
-      }
-    }
-
     return (
       <div id="app-container" className="App">
-        <Menu onStateChange={ isMenuOpen } styles={ styles }>
-          <a id="home" className="menu-item" href="/">Home</a>
-          <a id="about" className="menu-item" href="/about">About</a>
-          <a id="contact" className="menu-item" href="/contact">Contact</a>
-          <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
-        </Menu>
+        {this.displayMenu()}
         <div id="page-container" className="container">
-          <div className="item">
-            {this.state.coinID}
-            <TradingViewWidget
-              theme={Themes.DARK}
-              symbol="COINBASE:BTCUSD"
-              timezone="America/Chicago"
-              interval={IntervalTypes.D}
-              save_image={false}
-              allow_symbol_change={false}
-              autosize
-            />
-          </div>
-          <div className="item">
-            <TradingViewWidget
-              theme={Themes.DARK}
-              symbol="COINBASE:ETHUSD"
-              timezone="America/Chicago"
-              interval={IntervalTypes.D}
-              save_image={false}
-              autosize
-            />
-          </div>
-          <div className="item">
-            <TradingViewWidget
-              theme={Themes.DARK}
-              symbol="COINBASE:LTCUSD"
-              timezone="America/Chicago"
-              interval={IntervalTypes.D}
-              save_image={false}
-              autosize
-            />
-          </div>
+          {this.displayWidgets()}
         </div>
       </div>
     );

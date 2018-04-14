@@ -5,7 +5,8 @@ import PropTypes from 'prop-types';
 
 export const IntervalTypes = {
   D: 'D',
-  W: 'W'
+  W: 'W',
+  M: 'M'
 };
 
 export const Themes = {
@@ -52,7 +53,7 @@ export default class TradingViewWidget extends PureComponent {
     height: PropTypes.number,
     autosize: PropTypes.bool,
     symbol: PropTypes.string.isRequired,
-    interval: PropTypes.oneOf([1, 3, 5, 15, 30, 60, 120, 180, '1', '3', '5', '15', '30', '60', '120', '180', IntervalTypes.D,  IntervalTypes.W ]),
+    interval: PropTypes.oneOf([1, 3, 5, 15, 30, 60, 120, 180, 240, '1', '3', '5', '15', '30', '60', '120', '180', '240', IntervalTypes.D,  IntervalTypes.W, IntervalTypes.M ]),
     timezone: PropTypes.string,
     theme: PropTypes.oneOf([Themes.LIGHT, Themes.DARK]),
     style: PropTypes.oneOf([
@@ -116,7 +117,7 @@ export default class TradingViewWidget extends PureComponent {
     toolbar_bg: '#F1F3F6',
     enable_publishing: false,
     allow_symbol_change: true,
-    studies: [],
+    //studies: [],
     hideideas: true
   };
 
