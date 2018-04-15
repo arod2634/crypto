@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { slide as Menu } from 'react-burger-menu';
 import TradingViewWidget, { Themes, IntervalTypes }  from './TradingViewWidget';
+import CoinMarketCapData from './CoinMarketCapData';
 import './App.css';
 
 export default class App extends Component {
@@ -12,21 +13,25 @@ export default class App extends Component {
       timeInterval: 60,
       chartSize: "m",
       tickers: ['COINBASE:BTCUSD','COINBASE:ETHUSD','COINBASE:LTCUSD', 'BINANCE:EOSBTC'],
+      //tickers: ['COINBASE:BTCUSD'],
     }
   }
 
   displayWidgets = () => {
     if (Object.keys(this.state.tickers))
       return (this.state.tickers.map((ticker, index) =>
-        <div key={ticker} className={"item size-" + this.state.chartSize}>
-          <TradingViewWidget
-            theme={Themes.DARK}
-            symbol={ticker}
-            timezone="America/Chicago"
-            interval={this.state.timeInterval}
-            save_image={false}
-            allow_symbol_change={false}
-            autosize />
+        <div key={ticker} className="chart">
+          <div className={"item size-" + this.state.chartSize}>
+            <TradingViewWidget
+              theme={Themes.DARK}
+              symbol={ticker}
+              timezone="America/Chicago"
+              interval={this.state.timeInterval}
+              save_image={false}
+              allow_symbol_change={false}
+              autosize />
+          </div>
+          <CoinMarketCapData coinName="bitcoin"/>
         </div>))
     return (<div key={666} className="item"><h1>ERROR</h1></div>)
   }
