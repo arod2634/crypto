@@ -10,6 +10,7 @@ export default class App extends Component {
     this.state = {
       isOpen: false,
       timeInterval: 60,
+      chartSize: "m",
       tickers: ['COINBASE:BTCUSD','COINBASE:ETHUSD','COINBASE:LTCUSD', 'BINANCE:EOSBTC'],
     }
   }
@@ -17,7 +18,7 @@ export default class App extends Component {
   displayWidgets = () => {
     if (Object.keys(this.state.tickers))
       return (this.state.tickers.map((ticker, index) =>
-        <div key={ticker} className="item">
+        <div key={ticker} className={"item size-" + this.state.chartSize}>
           <TradingViewWidget
             theme={Themes.DARK}
             symbol={ticker}
@@ -26,7 +27,6 @@ export default class App extends Component {
             save_image={false}
             allow_symbol_change={false}
             autosize />
-            <button className="view-chart-button">View Full Chart</button>
         </div>))
     return (<div key={666} className="item"><h1>ERROR</h1></div>)
   }
@@ -37,8 +37,9 @@ export default class App extends Component {
         <h2>Settings</h2>
         <hr/>
         <br/>
+        <br/>
         <h3>Time Interval</h3>
-        <select id="time-interval-dropdown" value={this.state.timeInterval} onChange={this.updateTimeInterval} >
+        <select id="time-interval-dropdown" value={this.state.timeInterval} onChange={this.updateTimeInterval}>
           <option value={IntervalTypes.M}>Monthly</option>
           <option value={IntervalTypes.W}>Weekly</option>
           <option value={IntervalTypes.D}>Daily</option>
@@ -52,6 +53,15 @@ export default class App extends Component {
           <option value="3">3 Minute</option>
           <option value="1">1 Minute</option>
         </select>
+        <br/>
+        <br/>
+        <h3>Chart Size</h3>
+        <select id="chart-size-dropdown" value={this.state.chartSize} onChange={this.updateChartSize}>
+          <option value="s">Small</option>
+          <option value="m">Medium</option>
+          <option value="l">Large</option>
+          <option value="f">Full Width</option>
+        </select>
       </Menu>
     )
   }
@@ -63,11 +73,18 @@ export default class App extends Component {
     });
   }
 
+  updateChartSize = (e) => {
+    this.setState({
+      chartSize: e.target.value,
+      isOpen: false
+    });
+  }
+
   render() {
     return (
       <div id="app-container" className="App">
         {this.displayMenu()}
-        <div id="page-container" className="container">
+        <div id="page-container" className={"container size-" + this.state.chartSize}>
           {this.displayWidgets()}
         </div>
       </div>
