@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { slide as Menu } from 'react-burger-menu';
+import config from './config.json';
 import TradingViewWidget, { Themes, IntervalTypes }  from './TradingViewWidget';
-import CoinMarketCapData from './CoinMarketCapData';
+//import CoinMarketCapData from './CoinMarketCapData';
 import './App.css';
 
 export default class App extends Component {
@@ -10,30 +11,30 @@ export default class App extends Component {
     super(props)
     this.state = {
       isOpen: false,
-      timeInterval: 60,
-      chartSize: "m",
-      tickers: ['COINBASE:BTCUSD','COINBASE:ETHUSD','COINBASE:LTCUSD', 'BINANCE:EOSBTC'],
-      //tickers: ['COINBASE:BTCUSD'],
+      timeInterval: config.defaultTimeInterval,
+      timezone: config.defaultTimeZone,
+      chartSize: config.defaultChartSize,
+      tickers: config.symbols,
     }
   }
 
   displayWidgets = () => {
     if (Object.keys(this.state.tickers))
-      return (this.state.tickers.map((ticker, index) =>
-        <div key={ticker} className="chart">
+      return (Object.keys(this.state.tickers).map((ticker, index) =>
+        <div key={this.state.tickers[ticker].tradingViewTicker} className="chart">
           <div className={"item size-" + this.state.chartSize}>
             <TradingViewWidget
               theme={Themes.DARK}
-              symbol={ticker}
-              timezone="America/Chicago"
+              symbol={this.state.tickers[ticker].tradingViewTicker}
+              timezone={this.state.timezone}
               interval={this.state.timeInterval}
               save_image={false}
               allow_symbol_change={false}
               autosize />
           </div>
-          <CoinMarketCapData coinName="bitcoin"/>
         </div>))
     return (<div key={666} className="item"><h1>ERROR</h1></div>)
+    //<CoinMarketCapData coinName={this.state.tickers[ticker].name}/>
   }
 
   displayMenu = () => {
@@ -67,8 +68,34 @@ export default class App extends Component {
           <option value="l">Large</option>
           <option value="f">Full Width</option>
         </select>
+        <br/>
+        <br/>
+        <h3>Symbols</h3>
+        {this.displaySymbols()}
       </Menu>
     )
+  }
+
+  displaySymbols = () => {
+    return (Object.keys(config.symbols).map((ticker, index) =>
+        <label key={index}>
+          {ticker.toUpperCase()}
+        </label>))
+        //<input type="checkbox" defaultChecked={index === 0 ? true : false} onChange={(e) => this.updateSymbols(e)} value={ticker}/>{ticker.toUpperCase()}
+  }
+
+  updateSymbols = (e) => {
+    console.log(e.target.value)
+    //console.log(delete this.state.tickers[e.target.value])
+    let newSymbols = this.state.tickers
+    console.log(newSymbols)
+    delete newSymbols[e.target.value]
+    console.log(newSymbols)
+
+    this.setState({
+      tickers: newSymbols,
+      isOpen: true
+    })
   }
 
   updateTimeInterval = (e) => {

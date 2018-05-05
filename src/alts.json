@@ -1,0 +1,76 @@
+"eth": {
+  "name": "ethereum",
+  "tradingViewTicker":"COINBASE:ETHUSD"
+},
+"ltc": {
+  "name": "litecoin",
+  "tradingViewTicker":"COINBASE:LTCUSD"
+},
+"eos": {
+  "name": "eos",
+  "tradingViewTicker":"BINANCE:EOSBTC"
+},
+"sub": {
+  "name": "substratum",
+  "tradingViewTicker":"BINANCE:SUBBTC"
+},
+"nano": {
+  "name": "nano",
+  "tradingViewTicker":"BINANCE:NANOBTC"
+},
+"bnb": {
+  "name": "binance coin",
+  "tradingViewTicker":"BINANCE:BNBBTC"
+},
+"omg": {
+  "name": "omisego",
+  "tradingViewTicker":"BINANCE:OMGBTC"
+},
+"lsk": {
+  "name": "lisk",
+  "tradingViewTicker":"BINANCE:LSKBTC"
+},
+"ada": {
+  "name": "cardano",
+  "tradingViewTicker":"BINANCE:ADABTC"
+},
+"steem": {
+  "name": "steem",
+  "tradingViewTicker":"BINANCE:STEEMBTC"
+},
+"ethos": {
+  "name": "ethos",
+  "tradingViewTicker":"BINANCE:BQXBTC"
+},
+"bat": {
+  "name": "bat",
+  "tradingViewTicker":"BINANCE:BATBTC"
+},
+"ven": {
+  "name": "vechain",
+  "tradingViewTicker":"BINANCE:VENBTC"
+},
+"neo": {
+  "name": "neo",
+  "tradingViewTicker":"BINANCE:NEOBTC"
+},
+"xrp": {
+  "name": "ripple",
+  "tradingViewTicker":"BINANCE:XRPBTC"
+},
+"gas": {
+  "name": "gas",
+  "tradingViewTicker":"BINANCE:GASBTC"
+},
+"knc": {
+  "name": "kyber network",
+  "tradingViewTicker":"BINANCE:KNCBTC"
+},
+"nebl": {
+  "name": "neblio",
+  "tradingViewTicker":"BINANCE:NEBLBTC"
+},
+"bcpt": {
+  "name": "blockmason credit protocol",
+  "tradingViewTicker":"BINANCE:BCPTBTC"
+}

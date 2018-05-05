@@ -1,0 +1,24 @@
+{
+  "defaultTimeInterval": 15,
+  "defaultChartSize": "m",
+  "defaultTimeZone": "America/Chicago",
+  "symbols":
+    {
+    "btc": {
+      "name": "bitcoin",
+      "tradingViewTicker":"COINBASE:BTCUSD"
+    },
+    "eth": {
+      "name": "ethereum",
+      "tradingViewTicker":"COINBASE:ETHUSD"
+    },
+    "ltc": {
+      "name": "litecoin",
+      "tradingViewTicker":"COINBASE:LTCUSD"
+    },
+    "eos": {
+      "name": "eos",
+      "tradingViewTicker":"BINANCE:EOSBTC"
+    }
+  }
+}
